@@ -1,0 +1,9 @@
+﻿{
+  "name": "ShowDurability",
+  "description": "BepInEx mod for Starsand to show the durability of some tools which have it normally hidden.",
+  "version_number": "0.0.1",
+  "dependencies": [
+    "BepInEx-BepInExPack_Starsand-5.4.16"
+  ],
+  "website_url": "https://github.com/sp00ktober/ShowDurability"
+}
