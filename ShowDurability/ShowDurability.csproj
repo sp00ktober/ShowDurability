@@ -286,7 +286,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="manifest.json" />
     <None Include="packages.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\BepInEx.Analyzers.1.0.7\analyzers\dotnet\cs\BepInEx.Analyzers.CodeFixes.dll" />
