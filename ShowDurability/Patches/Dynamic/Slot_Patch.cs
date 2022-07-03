@@ -7,7 +7,9 @@ namespace ShowDurability.Patches.Dynamic
     [HarmonyPatch(typeof(Slot))]
     class Slot_Patch
     {
-        static float MAX_HEALTH = 300f;
+        static float MAX_HEALTH_WOOD = 300f;
+        static float MAX_HEALTH_IRON_PICKAXE = 600f;
+        static float MAX_HEALTH_IRON_AXE = 540f;
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(Slot), "Refresh")]
@@ -18,7 +20,25 @@ namespace ShowDurability.Patches.Dynamic
                 DurabilityBar bar = (DurabilityBar)AccessTools.Field(typeof(Slot), "m_DurabilityBar").GetValue(__instance);
                 bar.SetActive(true);
 
-                bar.SetFillAmount(__instance.CurrentItem.GetPropertyValue("Durability").Float.Current / MAX_HEALTH);
+                bar.SetFillAmount(__instance.CurrentItem.GetPropertyValue("Durability").Float.Current / MAX_HEALTH_WOOD);
+
+                __instance.Refreshed.Send(__instance);
+            }
+            else if (__instance?.CurrentItem?.Name == "METAL PICKAXE")
+            {
+                DurabilityBar bar = (DurabilityBar)AccessTools.Field(typeof(Slot), "m_DurabilityBar").GetValue(__instance);
+                bar.SetActive(true);
+
+                bar.SetFillAmount(__instance.CurrentItem.GetPropertyValue("Durability").Float.Current / MAX_HEALTH_IRON_PICKAXE);
+
+                __instance.Refreshed.Send(__instance);
+            }
+            else if(__instance?.CurrentItem?.Name == "METAL AX")
+            {
+                DurabilityBar bar = (DurabilityBar)AccessTools.Field(typeof(Slot), "m_DurabilityBar").GetValue(__instance);
+                bar.SetActive(true);
+
+                bar.SetFillAmount(__instance.CurrentItem.GetPropertyValue("Durability").Float.Current / MAX_HEALTH_IRON_AXE);
 
                 __instance.Refreshed.Send(__instance);
             }
