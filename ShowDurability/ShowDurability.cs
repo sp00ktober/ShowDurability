@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ShowDurability
 {
-    [BepInPlugin("com.sp00ktober.ShowDurability", "ShowDurability", "0.0.2")]
+    [BepInPlugin("com.sp00ktober.ShowDurability", "ShowDurability", "0.0.3")]
     public class ShowDurability : BaseUnityPlugin
     {
         private void Awake()
@@ -20,7 +20,7 @@ namespace ShowDurability
 
             try
             {
-                Debug.Log("Applying patches from ShowDurability 0.0.2");
+                Debug.Log("Applying patches from ShowDurability 0.0.3");
 
                 Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly(), "com.sp00ktober.de");
 

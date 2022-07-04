@@ -16,6 +16,10 @@ For support or to discuss any other modding related topic you can join our [Star
 
 ## Changelog
 
+0.0.3:
+
+- fix wrong durability value for iron axe
+
 0.0.2:
 
 - also include metal tools
